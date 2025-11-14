@@ -10,237 +10,541 @@
 <meta property="og:title" content="宅建試験ドットコム">
 <meta property="og:description" name="description" content="宅建試験の解説でNo.1を目指す学習用サイトです。根拠条文・判例付きの解説を含む平成12年から令和7年までの過去問題1,400問を無料で公開しています。">
 <meta property="og:type" content="website">
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" href="style.css">
 <title>宅建試験ドットコム － 試験制度＆過去問題を徹底解説</title>
 <style>::selection{background:transparent;color:inherit;text-shadow:none}</style>
+
+.info {
+  background: var(--main-bg);
+  position: relative;
+  padding: 10px 10px 10px 125px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.info > b:first-of-type {
+  position: absolute;
+  left: 58px;
+  top: 10px;
+  font-size: 12px;
+}
+
+.info::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  width: 50px;
+  height: 20px;
+  font-size: 10px;
+  color: #FFF;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.info.new::before {
+  content: "NEW";
+  background: #de5d36;
+}
+
+.info.news::before {
+  content: "INFO";
+  background: #77b533;
+}
+
+.info.update::before {
+  content: "UPDATE";
+  background: #ef9c35;
+}
+
+.info > a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.info > a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  background: #fafafa;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.selectList {
+  list-style: none;
+  counter-reset: item;
+}
+
+.selectList li {
+  counter-increment: item;
+  padding: 10px;
+  margin: 5px 0;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.selectList li:before {
+  content: counter(item) ". ";
+  font-weight: bold;
+  color: #667eea;
+}
+
+.selectList li:hover {
+  background: #f0f0ff;
+  border-color: #667eea;
+}
+
+.selectBtn {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.selectBtn a {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+  background: #667eea;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.selectBtn a:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.kaisetsu {
+  display: none;
+  background: #fff9e6;
+  padding: 20px;
+  margin: 20px 0;
+  border-left: 5px solid #ffc107;
+  border-radius: 5px;
+}
+
+.kaisetsuList li {
+  margin: 15px 0;
+  line-height: 1.8;
+}
+
+.submit {
+  display: block;
+  padding: 15px;
+  margin: 15px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.kakomonlist {
+  display: flex;
+  flex-wrap: wrap;
+  border: solid var(--dark-border);
+  border-width: 1px 0 0 1px;
+  list-style: none;
+}
+
+.kakomonlist li {
+  width: 50%;
+  border: solid var(--main-border);
+  border-width: 0 1px 1px 0;
+}
+
+.kakomonlist li a {
+  display: block;
+  background: var(--main-bg-sub);
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.kakomonlist li a:hover {
+  background: #f0f0ff;
+  color: #667eea;
+}
+
+#tabs > ul {
+  display: flex;
+  list-style: none;
+  border-bottom: 2px solid #667eea;
+  margin-bottom: 20px;
+}
+
+#tabs > ul li {
+  flex: 1;
+}
+
+#tabs > ul li a {
+  display: block;
+  padding: 15px;
+  text-align: center;
+  background: #f5f5f5;
+  color: #666;
+  text-decoration: none;
+  border-radius: 5px 5px 0 0;
+  transition: all 0.3s;
+}
+
+#tabs > ul li.active a {
+  background: #667eea;
+  color: white;
+}
+
+#tabs > ul li a:hover {
+  background: #764ba2;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  border-bottom: 1px solid #eee;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+nav ul li a:hover {
+  background: #f0f0ff;
+  color: #667eea;
+  padding-left: 15px;
+}
+
+footer {
+  background: #2c3e50;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+footer a {
+  color: #3498db;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.grayText {
+  color: #999;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.cite {
+  background: #f0f0f0;
+  padding: 10px;
+  margin: 10px 0;
+  border-left: 3px solid #667eea;
+  font-style: italic;
+}
+
+em.r {
+  color: #e74c3c;
+  font-weight: bold;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  #content {
+    flex-direction: column;
+  }
+  
+  nav {
+    width: 100%;
+  }
+  
+  .kakomonlist li {
+    width: 100%;
+  }
+  
+  .info {
+    padding: 30px 10px 10px;
+  }
+  
+  .info::before {
+    top: 5px;
+    left: 5px;
+  }
+  
+  .info > b:first-of-type {
+    top: 5px;
+    left: 60px;
+  }
+}
+
+</style>
 </head>
 <body>
 
-<script>
-if (typeof localStorage !== undefined) {
-const theme = localStorage.getItem('DARK') || 0;
-if (theme == 1) document.body.className += ' dark';
-if (theme == 2) document.body.className += ' beige';
-}
-</script>
-
 <div id="main_contents">
 
-<!-- ヘッダー -->
 <header id="pageTop">
 <h1>
-<a href="./">宅建試験ドットコム</a>
-<div id="menuBtn"></div>
-<div id="countdown">宅建試験の合格発表日は<span>2025</span>年<span>11</span>月<span>26</span>日　発表まであと<span class="big">12</span>日です。</div>
+<div style="font-size: 28px; font-weight: bold;">📚 資格試験ドットコム</div>
+<div id="countdown">試験の合格発表日は<span>2025</span>年<span>12</span>月<span>15</span>日　発表まであと<span class="big">31</span>日です。</div>
 </h1>
 </header>
 
-<!-- コンテンツ -->
 <div id="content">
-<!-- メインコンテンツ -->
 <main>
-<div class="img_margin main">
-<img src="pic/sample.jpg" alt="宅地建物取引士 試験制度＆過去問題を徹底解説">
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; text-align: center; border-radius: 10px; margin-bottom: 20px;">
+<h2 style="color: white; border: none; margin: 0; font-size: 28px;">試験制度＆過去問題を徹底解説</h2>
+<p style="margin-top: 10px;">無料で学べる資格試験対策サイト</p>
 </div>
 
 <h2>最新情報</h2>
-<p class="info news" id="countdown2">宅建試験の合格発表日は<span>2025</span>年<span>11</span>月<span>26</span>日　発表まであと<span class="big">12</span>日です。</p>
-<p class="info bbs update"><b data-update="1763097430">2時間前</b><a rel="ugc" href="./bbs/5520.html">[5520]&nbsp;合格発表当日</a>が更新されました。<br>最終投稿：<b>じむ</b>さん　💬 25</p>
-<p class="info bbs update"><b data-update="1763076066">8時間前</b><a rel="ugc" href="./bbs/5518.html">[5518]&nbsp;33点は合格可能性である新情報</a>が更新されました。<br>最終投稿：<b>そもそも論</b>さん　💬 43</p>
-<p class="info bbs update"><b data-update="1763037110">19時間前</b><a rel="ugc" href="./bbs/5519.html">[5519]&nbsp;試験時間の分配について</a>が更新されました。<br>最終投稿：<b>今年は合格確信</b>さん　💬 26</p>
+<p class="info new"><b>11月10日</b><a href="#">令和7年の試験問題</a>を追加しました。</p>
+<p class="info update"><b>10月25日</b><a href="#">法令・制度改正情報</a>のページを更新しました。</p>
+<p class="info news"><b>10月15日</b>問題文にマーカーや下線を引ける機能を追加しました。</p>
+<p class="info new"><b>9月30日</b><a href="#">統計問題対策のページ</a>のデータを令和7年度版に更新しました。</p>
+<p class="info update"><b>9月1日</b>令和7年度試験に向けた過去問の法改正対応を完了しました。</p>
 
-<p class="info new"><b>10月19日</b><a href="/kakomon/2025/">令和7年の試験問題</a>を追加しました。</p>
-<p class="info new"><b>10月3日</b>問題文にマーカーや下線を引ける機能を追加しました。</p>
-<p class="info update"><b>8月12日</b><a href="/law.html">法令・制度改正情報</a>のページに令和7年分の情報を追加しました。</p>
-<p class="info new"><b>5月30日</b>目に優しく、眼精疲労の軽減効果が期待できるベージュ系のテーマカラーを追加しました。<a href="/config.html">サイト設定</a>のページから端末ごとに設定できます。</p>
-<p class="info update"><b>3月24日</b>パスワードの文字種を増やし、最大32文字に拡張するセキュリティ強化を実施しました。</p>
-<p class="info new"><b>2月6日</b><a href="/toukei_taisaku.html">需給統計問題（問48）対策のページ</a>のデータを令和7年度版に更新しました。</p>
-<p class="info update"><b>1月18日</b>令和7年度試験に向けた過去問の法改正対応を完了しました。</p>
-
-<h3 class="divider">2024年</h3>
-<p class="info new"><b>10月20日</b><a href="/kakomon/2024/">令和6年の試験問題</a>を追加しました。</p>
-<p class="info update"><b>8月28日</b><a href="/law.html">法令・制度改正情報</a>のページに令和6年分の情報を追加しました。</p>
-
-<p id="showMore">▼すべて表示する</p>
-
-<h2>宅建士 過去問一問一答</h2>
-<section class="content">宅地建物取引業者Aが、B所有の宅地の売却の媒介依頼を受け、Bと媒介契約を締結した場合に関する次の記述のうち、宅地建物取引業法の規定によれば、正しいものはいくつあるか。<ol class="kanaList"><li>Bの申出により、契約の有効期間を6月と定めた専任媒介契約を締結した場合、その契約はすべて無効である。</li><li>AB間で専属専任媒介契約を締結した場合、AはBに対し、当該契約の業務の処理状況を2週間に1回以上報告しなければならない。</li><li>AB間で専属専任媒介契約を締結した場合、Bは、Aが探索した相手方以外の者と売買契約を締結することができない。</li></ol>
-<div class="grayText">平成17年 問36 [宅地建物取引業法等]</div>
+<h2>過去問一問一答</h2>
+<section class="content">
+次の記述のうち、正しいものはいくつあるか。
+<ol class="selectList">
+<li>選択肢1の内容がここに入ります。これは正しい記述です。</li>
+<li>選択肢2の内容がここに入ります。これは誤った記述です。</li>
+<li>選択肢3の内容がここに入ります。これも正しい記述です。</li>
+</ol>
+<div class="grayText">令和6年 問題1 [分野名]</div>
 </section>
 
-<section class="content"><ol class="selectList"><li data-answer="t">一つ</li><li>二つ</li><li>三つ</li><li>なし</li></ol></section>
+<section class="content">
+<ol class="selectList">
+<li data-answer="t">一つ</li>
+<li>二つ</li>
+<li>三つ</li>
+<li>なし</li>
+</ol>
+</section>
 
-<div class="selectBtn"><a href="#" data-answer="t" class="hover">1</a><a href="#" class="hover">2</a><a href="#" class="hover">3</a><a href="#" class="hover">4</a></div>
+<div class="selectBtn">
+<a href="#" onclick="showAnswer(); return false;">1</a>
+<a href="#" onclick="showAnswer(); return false;">2</a>
+<a href="#" onclick="showAnswer(); return false;">3</a>
+<a href="#" onclick="showAnswer(); return false;">4</a>
+</div>
 
-<section class="content kaisetsu"><ol class="kaisetsuList kanaList"><li><div class="cite">"Bの申出により、契約の有効期間を6月と定めた専任媒介契約を締結した場合、その契約はすべて無効である。"</div>誤り。媒介契約は「すべて無効」にはなりません。専任媒介契約の有効期間は最長で<em class="r">3</em>カ月です。3カ月を超える有効期間を定めたときは、3カ月を超える部分のみが無効となり、有効期間は3カ月となります<span class="law-text">（<span class="lawNo">宅建業法34条の2第3項</span>）</span>。<br><blockquote class="lawBody">依頼者が他の宅地建物取引業者に重ねて売買又は交換の媒介又は代理を依頼することを禁ずる媒介契約（以下「専任媒介契約」という。）の有効期間は、三月を超えることができない。これより長い期間を定めたときは、その期間は、三月とする。</blockquote></li><li><div class="cite">"AB間で専属専任媒介契約を締結した場合、AはBに対し、当該契約の業務の処理状況を2週間に1回以上報告しなければならない。"</div>誤り。専属専任媒介契約では、業務の処理状況を<em class="r">1週間</em>に1回以上、依頼者に報告する必要があります。2週間に1回以上というのは専属ではない専任媒介契約の方です<span class="law-text">（<span class="lawNo">宅建業法34条の2第9項</span>）</span>。</li><li><div class="cite">"AB間で専属専任媒介契約を締結した場合、Bは、Aが探索した相手方以外の者と売買契約を締結することができない。"</div>正しい。専属専任媒介契約とは、自己発見取引を禁止する旨の特約を含む専任媒介契約ですから、専属専任媒介契約を締結したBは、Aが探索した相手方以外の者と売買契約を締結することができません。</li></ol>したがって正しいものは「一つ」です。<div class="img_margin"><img src="pic/sample.jpg" alt="解説図"></div></section>
+<section class="content kaisetsu" id="kaisetsu">
+<h3>解説</h3>
+<ol class="kaisetsuList">
+<li>
+<div class="cite">選択肢1の内容がここに入ります。これは正しい記述です。</div>
+<strong>正しい。</strong>この選択肢は正しい記述です。根拠となる法令や条文の説明がここに入ります。詳細な解説を記載することで、受験者の理解を深めることができます。
+</li>
+<li>
+<div class="cite">選択肢2の内容がここに入ります。これは誤った記述です。</div>
+<strong>誤り。</strong>この選択肢は誤った記述です。正しくは<em class="r">○○</em>となります。法令の条文や判例を引用しながら、なぜ誤りなのかを詳しく説明します。
+</li>
+<li>
+<div class="cite">選択肢3の内容がここに入ります。これも正しい記述です。</div>
+<strong>正しい。</strong>この選択肢も正しい記述です。関連する法令や制度について、具体例を交えながら解説します。
+</li>
+</ol>
+したがって正しいものは「二つ」です。
+</section>
 
-<a href="/kakomon.php" class="submit hover">🥋過去問道場に挑戦</a>
+<a href="#" class="submit">🥋過去問道場に挑戦</a>
 
 <div id="tabs">
-<ul><li class="active"><a href="#tab1">試験制度</a></li><li><a href="#tab2">宅建士過去問題</a></li></ul>
+<ul>
+<li class="active"><a href="#tab1" onclick="switchTab(1); return false;">試験制度</a></li>
+<li><a href="#tab2" onclick="switchTab(2); return false;">過去問題</a></li>
+</ul>
+
 <div id="tab1">
 <div class="content">
-<h3>宅地建物取引士（宅建士）とは</h3>
-<p><strong>宅地建物取引士</strong>は、家やビルなどの建物を建てるための土地、またその建物そのものを売買したり交換したり、持ち主の代わりに賃貸物件をあっせんする際に必要な国家資格です。
-不動産取引は一般に1回の取引が高額であり、1つの間違いが人の人生を狂わせてしまう可能性すらあります。しかし、不動産取引の当事者は不動産に関する知識や経験の少ないお客様がほとんどですから、人の財産の適切な保護のためには、専門知識を持つ宅建士が詳しい説明をしてあげることが必要なのです。…
-<br>
-<a href="/takkenis.html">⇨続きを読む</a></p>
+<h3>資格試験とは</h3>
+<p>この資格は、専門的な知識と技能を証明する国家資格です。取得することで、専門家としての信頼性が高まり、キャリアアップにつながります。試験は年1回実施され、合格率は約15%前後となっています。</p>
+<p><a href="#">⇨続きを読む</a></p>
 </div>
+
 <div class="content">
 <h3>試験の概要</h3>
-<p>宅建士試験は、毎年1回、10月の第3日曜日に各都道府県ごとに実施されます。試験は、都道府県知事が、国土交通省令の定めるところにより行うこととされており、昭和63年度から、国土交通大臣に指定された指定試験機関である「一般財団法人不動産適正取引推進機構」が、すべての都道府県知事の委任を受けて実施しています。…
-<br>
-<a href="/gaiyou.html">⇨続きを読む</a></p>
+<p>試験は毎年10月に実施されます。試験時間は2時間、四肢択一式で50問出題されます。合格基準は例年35点前後（50点満点）となっており、相対評価で決定されます。</p>
+<p><a href="#">⇨続きを読む</a></p>
 </div>
+
 <div class="content">
 <h3>出題範囲および内容</h3>
-<p>宅建業法施行規則第7条及び第8条で規定されている宅建試験の出題範囲は、次のとおりです。出題内容は、宅地建物取引業に関する実用的な知識を有するかどうかを判定することに基準が置かれています。土地の形質、地積、地目及び種別並びに建物の形質、構造及び種別に関すること。土地及び建物についての権利及び権利の変動に関する法令に関すること。土地及び建物についての法令上の制限に関すること。…
-<br>
-<a href="/hani.html">⇨続きを読む</a></p>
+<p>試験の出題範囲は大きく4つの分野に分かれています。各分野からバランスよく出題されるため、偏りのない学習が重要です。過去問題を繰り返し解くことで、出題傾向を把握することができます。</p>
+<p><a href="#">⇨続きを読む</a></p>
 </div>
+
 <div class="content">
-<h3>宅建試験の難易度</h3>
-<p>難しいと思われがちな宅建士の試験ですが、その難易度としては一般的には「普通」ぐらいだと言われています。「普通」と言っても、人によって感じ方はそれぞれです。<br>
-宅建士の難易度を様々な角度から見てみましょう。…
-<br>
-<a href="/nanido.html">⇨続きを読む</a></p>
+<h3>試験の難易度</h3>
+<p>難易度は「普通」から「やや難しい」程度とされています。しっかりとした学習計画を立て、3〜6ヶ月程度の学習期間を確保することで、合格を目指すことができます。</p>
+<p><a href="#">⇨続きを読む</a></p>
 </div>
 </div>
 
-<div id="tab2">
+<div id="tab2" style="display: none;">
 <ul class="kakomonlist">
-<li><a href="/kakomon/2025/">令和7年試験問題</a></li>
-<li><a href="/kakomon/2024/">令和6年試験問題</a></li>
-<li><a href="/kakomon/2023/">令和5年試験問題</a></li>
-<li><a href="/kakomon/2022/">令和4年試験問題</a></li>
-<li><a href="/kakomon/2021-1/">令和3年10月試験</a></li>
-<li><a href="/kakomon/2021-2/">令和3年12月試験</a></li>
-<li><a href="/kakomon/2020-2/">令和2年12月試験</a></li>
-<li><a href="/kakomon/2020-1/">令和2年10月試験</a></li>
-<li><a href="/kakomon/2019/">令和元年試験問題</a></li>
-<li><a href="/kakomon/2018/">平成30年試験問題</a></li>
-<li><a href="/kakomon/2017/">平成29年試験問題</a></li>
-<li><a href="/kakomon/2016/">平成28年試験問題</a></li>
-<li><a href="/kakomon/2015/">平成27年試験問題</a></li>
-<li><a href="/kakomon/2014/">平成26年試験問題</a></li>
-<li><a href="/kakomon/2013/">平成25年試験問題</a></li>
-<li><a href="/kakomon/2012/">平成24年試験問題</a></li>
-<li><a href="/kakomon/2011/">平成23年試験問題</a></li>
-<li><a href="/kakomon/2010/">平成22年試験問題</a></li>
-<li><a href="/kakomon/2009/">平成21年試験問題</a></li>
-<li><a href="/kakomon/2008/">平成20年試験問題</a></li>
-<li><a href="/kakomon/2007/">平成19年試験問題</a></li>
-<li><a href="/kakomon/2006/">平成18年試験問題</a></li>
-<li><a href="/kakomon/2005/">平成17年試験問題</a></li>
-<li><a href="/kakomon/2004/">平成16年試験問題</a></li>
-<li><a href="/kakomon/2003/">平成15年試験問題</a></li>
-<li><a href="/kakomon/2002/">平成14年試験問題</a></li>
-<li><a href="/kakomon/2001/">平成13年試験問題</a></li>
-<li><a href="/kakomon/2000/">平成12年試験問題</a></li>
+<li><a href="#">令和7年試験問題</a></li>
+<li><a href="#">令和6年試験問題</a></li>
+<li><a href="#">令和5年試験問題</a></li>
+<li><a href="#">令和4年試験問題</a></li>
+<li><a href="#">令和3年試験問題</a></li>
+<li><a href="#">令和2年試験問題</a></li>
+<li><a href="#">令和元年試験問題</a></li>
+<li><a href="#">平成30年試験問題</a></li>
+<li><a href="#">平成29年試験問題</a></li>
+<li><a href="#">平成28年試験問題</a></li>
+<li><a href="#">平成27年試験問題</a></li>
+<li><a href="#">平成26年試験問題</a></li>
+<li><a href="#">平成25年試験問題</a></li>
+<li><a href="#">平成24年試験問題</a></li>
+<li><a href="#">平成23年試験問題</a></li>
+<li><a href="#">平成22年試験問題</a></li>
 </ul>
 </div>
 </div>
 
 </main>
 
-<!-- サイドバー -->
 <nav>
-<h3>宅建士過去問アプリ</h3>
-<a href="/kakomon.php" class="doujou submit hover" title="宅建試験クイズアプリ過去問道場">過去問道場</a>
-<a href="/marubatu.php" class="marubatu submit hover" title="宅建士一問一答">一問一答道場</a>
+<h3>過去問アプリ</h3>
+<a href="#" class="submit">過去問道場</a>
+<a href="#" class="submit" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">一問一答道場</a>
+
 <h3>質問・相談はこちら</h3>
-<a href="/bbs.php" class="bbs submit hover" title="宅建試験掲示板" data-text="BBS">宅建試験掲示板</a>
+<a href="#" class="submit" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">試験掲示板</a>
 
-<a class="sideBanner" href="#"><img src="pic/sample.jpg" alt="宅建士問題集"></a>
-
-<h3>宅建士過去問題25年分</h3>
+<h3>過去問題15年分</h3>
 <ul id="test_menu">
-<li><a href="/kakomon/2025/" title="令和7年試験問題">令和7年試験問題</a></li>
-<li><a href="/kakomon/2024/" title="令和6年試験問題">令和6年試験問題</a></li>
-<li><a href="/kakomon/2023/" title="令和5年試験問題">令和5年試験問題</a></li>
-<li><a href="/kakomon/2022/" title="令和4年試験問題">令和4年試験問題</a></li>
-<li><a href="/kakomon/2021-2/" title="令和3年12月試験">令和3年12月試験</a></li>
-<li><a href="/kakomon/2021-1/" title="令和3年10月試験">令和3年10月試験</a></li>
-<li><a href="/kakomon/2020-2/" title="令和2年12月試験">令和2年12月試験</a></li>
-<li><a href="/kakomon/2020-1/" title="令和2年10月試験">令和2年10月試験</a></li>
-<li><a href="/kakomon/2019/" title="令和元年試験問題">令和元年試験問題</a></li>
-<li><a href="/kakomon/2018/" title="平成30年試験問題">平成30年試験問題</a></li>
-<li><a href="/kakomon/2017/" title="平成29年試験問題">平成29年試験問題</a></li>
-<li><a href="/kakomon/2016/" title="平成28年試験問題">平成28年試験問題</a></li>
-<li><a href="/kakomon/2015/" title="平成27年試験問題">平成27年試験問題</a></li>
-<li><a href="/kakomon/2014/" title="平成26年試験問題">平成26年試験問題</a></li>
-<li><a href="/kakomon/2013/" title="平成25年試験問題">平成25年試験問題</a></li>
-<li><a href="/kakomon/2012/" title="平成24年試験問題">平成24年試験問題</a></li>
-<li><a href="/kakomon/2011/" title="平成23年試験問題">平成23年試験問題</a></li>
-<li><a href="/kakomon/2010/" title="平成22年試験問題">平成22年試験問題</a></li>
-<li><a href="/kakomon/2009/" title="平成21年試験問題">平成21年試験問題</a></li>
-<li><a href="/kakomon/2008/" title="平成20年試験問題">平成20年試験問題</a></li>
-<li><a href="/kakomon/2007/" title="平成19年試験問題">平成19年試験問題</a></li>
-<li><a href="/kakomon/2006/" title="平成18年試験問題">平成18年試験問題</a></li>
-<li><a href="/kakomon/2005/" title="平成17年試験問題">平成17年試験問題</a></li>
-<li><a href="/kakomon/2004/" title="平成16年試験問題">平成16年試験問題</a></li>
-<li><a href="/kakomon/2003/" title="平成15年試験問題">平成15年試験問題</a></li>
+<li><a href="#">令和7年試験問題</a></li>
+<li><a href="#">令和6年試験問題</a></li>
+<li><a href="#">令和5年試験問題</a></li>
+<li><a href="#">令和4年試験問題</a></li>
+<li><a href="#">令和3年試験問題</a></li>
+<li><a href="#">令和2年試験問題</a></li>
+<li><a href="#">令和元年試験問題</a></li>
+<li><a href="#">平成30年試験問題</a></li>
+<li><a href="#">平成29年試験問題</a></li>
+<li><a href="#">平成28年試験問題</a></li>
+<li><a href="#">平成27年試験問題</a></li>
+<li><a href="#">平成26年試験問題</a></li>
+<li><a href="#">平成25年試験問題</a></li>
+<li><a href="#">平成24年試験問題</a></li>
+<li><a href="#">平成23年試験問題</a></li>
 </ul>
 
 <h3>分野別過去問題</h3>
 <ul>
-<li><a href="/rights.html" title="権利関係の過去問題">権利関係</a></li>
-<li><a href="/restriction.html" title="法令上の制限の過去問題">法令上の制限</a></li>
-<li><a href="/tax.html" title="税に関する法令の過去問題">税に関する法令</a></li>
-<li><a href="/evaluation.html" title="不動産価格の評定の過去問題">不動産価格の評定</a></li>
-<li><a href="/takkengyouhou.html" title="宅地建物取引業法等の過去問題">宅地建物取引業法等</a></li>
-<li><a href="/land_building.html" title="土地と建物及びその需給の過去問題">土地と建物及びその需給</a></li>
+<li><a href="#">分野1の過去問題</a></li>
+<li><a href="#">分野2の過去問題</a></li>
+<li><a href="#">分野3の過去問題</a></li>
+<li><a href="#">分野4の過去問題</a></li>
 </ul>
 
-<h3>宅建士試験制度</h3>
+<h3>試験制度</h3>
 <ul>
-<li><a href="/takkenis.html" title="宅地建物取引士とは？">宅地建物取引士とは？</a></li>
-<li><a href="/gaiyou.html" title="宅建試験の概要">宅建試験の概要</a></li>
-<li><a href="/hani.html" title="出題範囲および内容">出題範囲および内容</a></li>
-<li><a href="/nanido.html" title="宅建試験の難易度">宅建試験の難易度</a></li>
-<li><a href="/schedule.html" title="受験スケジュール">受験スケジュール</a></li>
-<li><a href="/takkentext.html" title="おすすめ参考書・問題集">おすすめ参考書・問題集</a></li>
-<li><a href="/toukei.html" title="受験者数と合格率の推移">受験者数と合格率の推移</a></li>
-<li><a href="/kakomon-free-pdf.html" title="宅建過去問PDF37年分">宅建過去問題PDF37年分</a></li>
-<li><a href="/toukei_taisaku.html" title="需給統計問題対策">令和7年試験・統計問題対策</a></li>
-<li><a href="/law.html" title="法令・制度改正情報">法令・制度改正情報</a></li>
-<li><a href="/takken_career-path.html" title="宅建試験後のおすすめ資格">宅建試験後のおすすめ資格</a></li>
+<li><a href="#">資格試験とは？</a></li>
+<li><a href="#">試験の概要</a></li>
+<li><a href="#">出題範囲および内容</a></li>
+<li><a href="#">試験の難易度</a></li>
+<li><a href="#">受験スケジュール</a></li>
+<li><a href="#">おすすめ参考書・問題集</a></li>
+<li><a href="#">受験者数と合格率の推移</a></li>
+<li><a href="#">過去問題PDF</a></li>
+<li><a href="#">統計問題対策</a></li>
+<li><a href="#">法令・制度改正情報</a></li>
 </ul>
-<div class="menuCloseBtn">×　メニューを閉じる</div>
 </nav>
 
 </div>
-<!-- コンテンツ終了 -->
 
-<!-- フッター -->
 <footer>
-<div class="minilogo"></div>
-<a href="/userterms.html">このサイトの利用について</a>
-<a href="/privacypolicy.html">プライバシーポリシー</a>
-<a href="/tokushouhou.html">特商法に基づく表記</a>
-<a href="/faq.html">よくある質問とその答え</a>
-<a href="/contact.html">お問い合わせ</a>
-<a href="/config.html">サイト設定</a>
-<br>
-<a href="https://fp3-siken.com/" class="mutualLink">FP3級ドットコム</a>
-<a href="https://fp2-siken.com/" class="mutualLink">FP2級ドットコム</a>
-<a href="https://fp1-siken.com/" class="mutualLink">FP1級ドットコム</a>
-<a href="https://chintaikanrishi-siken.com/" class="mutualLink">賃貸管理士試験ドットコム</a>
-<a href="https://kangyou-siken.com/" class="mutualLink">管理業務主任者試験ドットコム</a>
-<a href="https://denkou2-siken.com/" class="mutualLink">第二種電気工事士ドットコム</a>
-<div class="copyright">© 2018-<script>document.write(new Date().getFullYear());</script> <b>takken-siken.com</b> All Rights Reserved.</div>
+<div style="margin-bottom: 20px;">
+<a href="#">このサイトの利用について</a>
+<a href="#">プライバシーポリシー</a>
+<a href="#">特商法に基づく表記</a>
+<a href="#">よくある質問</a>
+<a href="#">お問い合わせ</a>
+<a href="#">サイト設定</a>
+</div>
+<div style="margin: 20px 0;">
+<a href="#">関連サイト1</a>
+<a href="#">関連サイト2</a>
+<a href="#">関連サイト3</a>
+</div>
+<div class="copyright" style="margin-top: 20px; color: #95a5a6;">
+© 2024-2025 <b>shiken-site.com</b> All Rights Reserved.
+</div>
 </footer>
 
 </div>
-<!-- メインコンテンツ終了 -->
 
-<div id="canvas_answer_back"></div>
-<canvas id="canvas_answer_front" width="200" height="260"></canvas>
+<script>
+function showAnswer() {
+  document.getElementById('kaisetsu').style.display = 'block';
+  window.scrollTo({
+    top: document.getElementById('kaisetsu').offsetTop - 100,
+    behavior: 'smooth'
+  });
+}
 
-<!-- スクリプト -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="main.js"></script>
+function switchTab(tabNum) {
+  const tab1 = document.getElementById('tab1');
+  const tab2 = document.getElementById('tab2');
+  const tabs = document.querySelectorAll('#tabs > ul li');
+  
+  if (tabNum === 1) {
+    tab1.style.display = 'block';
+    tab2.style.display = 'none';
+    tabs[0].classList.add('active');
+    tabs[1].classList.remove('active');
+  } else {
+    tab1.style.display = 'none';
+    tab2.style.display = 'block';
+    tabs[0].classList.remove('active');
+    tabs[1].classList.add('active');
+  }
+}
+
+// ページ読み込み時の初期化
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('資格試験ドットコム - ページ読み込み完了');
+});
+</script>
 
 </body>
 </html>
