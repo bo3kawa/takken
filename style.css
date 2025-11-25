@@ -1075,3 +1075,227 @@ body.beige nav ul li a:hover {
 .mb-0 { margin-bottom: 0; }
 .mb-1 { margin-bottom: 10px; }
 .mb-2 { margin-bottom: 20px; }
+
+/* ========================================
+   問題一覧ページ
+======================================== */
+.index {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.index li {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.index li:last-child {
+  border-bottom: none;
+}
+
+.index li.header {
+  background: var(--orange-main);
+  color: white;
+  font-weight: bold;
+}
+
+.index li.header a {
+  color: white;
+  cursor: default;
+}
+
+.index li.header a:hover {
+  background: var(--orange-main);
+}
+
+.index li a {
+  display: flex;
+  padding: 15px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s;
+  align-items: center;
+  gap: 15px;
+}
+
+.index li a:hover {
+  background: #fff5e6;
+  text-decoration: none;
+}
+
+.index li a span:nth-child(1) {
+  flex: 0 0 60px;
+  font-weight: bold;
+  color: var(--orange-main);
+  font-size: 16px;
+}
+
+.index li a span:nth-child(2) {
+  flex: 1;
+  line-height: 1.6;
+  color: #333;
+}
+
+.index li a span:nth-child(3) {
+  flex: 0 0 200px;
+  font-size: 13px;
+  color: #999;
+  text-align: right;
+}
+
+.index li a span:nth-child(4) {
+  flex: 0 0 30px;
+  text-align: center;
+  color: #4caf50;
+  font-size: 18px;
+}
+
+/* パンくずリスト */
+.pan {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0 0 20px 0;
+  padding: 10px;
+  background: #f5f5f5;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.pan li::after {
+  content: "›";
+  margin-left: 10px;
+  color: #999;
+}
+
+.pan li:last-child::after {
+  content: "";
+}
+
+.pan li a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.pan li a:hover {
+  text-decoration: underline;
+}
+
+.pan li b {
+  color: #333;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .index li a {
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+  
+  .index li a span:nth-child(1) {
+    flex: 0 0 50px;
+    font-size: 14px;
+  }
+  
+  .index li a span:nth-child(2) {
+    flex: 1 1 100%;
+    order: 3;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+  
+  .index li a span:nth-child(3) {
+    flex: 1;
+    text-align: left;
+    font-size: 12px;
+  }
+  
+  .index li a span:nth-child(4) {
+    flex: 0 0 30px;
+  }
+}
+
+/* ========================================
+   問題詳細ページ
+======================================== */
+.mondai {
+  font-size: 16px;
+  line-height: 1.9;
+  margin: 15px 0;
+  padding: 15px;
+  background: #f9f9f9;
+  border-left: 4px solid var(--orange-main);
+}
+
+.kaisetsuList {
+  list-style: none;
+  counter-reset: item;
+}
+
+.kaisetsuList > li {
+  margin: 25px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  border-left: 4px solid var(--orange-main);
+  counter-increment: item;
+}
+
+.kaisetsuList > li::before {
+  content: "選択肢 " counter(item);
+  display: block;
+  font-weight: bold;
+  color: var(--orange-main);
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.kaisetsuList strong {
+  color: #e74c3c;
+  font-size: 16px;
+}
+
+.bottomNav {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 40px 0 20px;
+  padding: 0;
+}
+
+.bottomNav li {
+  flex: 1;
+}
+
+.bottomNav li a {
+  display: block;
+  padding: 15px;
+  background: var(--orange-main);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.bottomNav li a:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .bottomNav {
+    flex-direction: column;
+  }
+  
+  .mondai {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
